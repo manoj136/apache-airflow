@@ -4,7 +4,12 @@ from airflow.models import DAG
 from airflow import AirflowException
 from airflow.operators.python_operator import PythonOperator
 
-from my_tasks import first_task_callable, second_task_callable
+
+def first_task_callable():
+    print("First DAG task executed Successfully!!")
+    
+def second_task_callable():
+    print("Second DAG task executed Successfully!!")
 
 
 TIMEOUT = timedelta(days=14)
