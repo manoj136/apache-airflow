@@ -19,7 +19,7 @@ def task_to_fail():
     raise AirflowException("Please change this step to success to continue")
 
 
-dag = DAG(dag_id="my_dag")
+dag = DAG(dag_id="manual_intervention_dag")
 
 first_task = PythonOperator(
     dag=dag,
