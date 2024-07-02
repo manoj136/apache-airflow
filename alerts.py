@@ -1,7 +1,13 @@
 from airflow import DAG 
+from datetime import datetime
 from airflow.operators.email import EmailOperator
 
-dag = DAG('send_alert_dag', schedule_interval='@daily')
+default_args = {
+    'owner': 'airflow',
+    'start_date': datetime(2024, 7, 2),
+}
+
+dag = DAG('send_alert_dag', default_args=default_args, schedule_interval='@daily')
 
 send_email = EmailOperator(
     task_id='send_email',
